@@ -6,11 +6,14 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "server": "astro build && node ./dist/server/entry.mjs"
   },
   "dependencies": {
+    "@astrojs/node": "^9.1.2",
     "@tailwindcss/vite": "^4.0.12",
     "astro": "^5.4.2",
+    "nodemailer": "^6.10.0",
     "tailwindcss": "^4.0.12",
     "template": "file:"
   }

@@ -25,6 +25,17 @@ import background from '../assets/background.svg';
 				</a>
 			</section>
 		</section>
+		<form action="/api/contact" method="post">
+			<div>
+				<label for="email" >Your email</label>
+				<input id="email" name="email" type="email" placeholder="email" required>
+			</div>
+			<div>
+				<label for="message" >Tell us what you need!</label>
+				<input id="message" name="message" type="text" required>
+			</div>
+			<button type="submit">Contact us!</button>
+		</form>
 	</main>
 
 	<a href="https://astro.build/blog/astro-5/" id="news" class="box">
@@ -40,7 +51,6 @@ import background from '../assets/background.svg';
 		</p>
 	</a>
 </div>
-
 <style>
 	#background {
 		position: fixed;
