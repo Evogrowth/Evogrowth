@@ -1,5 +1,4 @@
 import { sendEmailAsync } from "../services/nodemailerService.js"
-import { getSecret } from "astro:env/server";
 
 export async function sendContactEmail(email, message){
     try {
