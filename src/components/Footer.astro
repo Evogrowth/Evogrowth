@@ -4,6 +4,11 @@ import mail from "../assets/footer/envelope-solid.svg"
 import facebook from "../assets/footer/square-facebook-brands.svg"
 import instagram from "../assets/footer/instagram-brands.svg"
 import whatsapp from "../assets/footer/whatsapp-brands.svg"
+
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 <footer class="flex flex-col gap-5 py-6 px-6">
     <div>
@@ -11,16 +16,16 @@ import whatsapp from "../assets/footer/whatsapp-brands.svg"
     </div>
     <div class="grid grid-cols-4 gap-2 w-full sm:w-80 sm:gap-8 *:inline-flex *:rounded-full *:bg-gray-300 *:aspect-square *:border-2 *:border-gray-400 *:max-w-14 *:mx-auto *:p-2">
         <a  href="mailto:contact.evogrowth@gmail.com">
-            <img class="h-auto w-8 mx-auto" src={mail.src} alt="email de contacto" title="email de contacto">
+            <img class="h-auto w-8 mx-auto" src={mail.src} alt={t("footer.email-alt")} title={t("footer.email-alt")}>
         </a>
         <a href="https://www.facebook.com/evo.growth/">
-            <img class="h-auto w-8 mx-auto" src={facebook.src} alt="página de facebook" title="página de facebook">
+            <img class="h-auto w-8 mx-auto" src={facebook.src} alt={t("footer.fb-alt")} title={t("footer.fb-alt")}>
         </a>
         <a href="https://www.instagram.com/evo.growth/">
-            <img class="h-auto w-8 mx-auto" src={instagram.src} alt="página de instagram" title="página de instagram">
+            <img class="h-auto w-8 mx-auto" src={instagram.src} alt={t("footer.ig-alt")} title={t("footer.ig-alt")}>
         </a>
         <a href="https://wa.me/">
-            <img class="h-auto w-8 mx-auto" src={whatsapp.src} alt="whatsapp" title="whatsapp">
+            <img class="h-auto w-8 mx-auto" src={whatsapp.src} alt="Whatsapp" title="Whatsapp">
         </a>
     </div>
     <hr class="border-gray-400" />

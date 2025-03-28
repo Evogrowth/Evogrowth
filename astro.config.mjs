@@ -11,5 +11,9 @@ export default defineConfig({
   site: "https://evogrowth.dev",
   devToolbar: {
     enabled: false
+  },
+  i18n:{
+    locales: ["es", "en"],
+    defaultLocale: "es",
   }
 });
