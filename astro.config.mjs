@@ -8,7 +8,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  site: "https://evogrowth.dev",
+  site: "https://evogrowth.dev/",
   devToolbar: {
     enabled: false
   }
