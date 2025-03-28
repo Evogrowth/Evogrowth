@@ -1,0 +1,30 @@
+---
+import logo from "../assets/footer/brand-logo.svg"
+import mail from "../assets/footer/envelope-solid.svg"
+import facebook from "../assets/footer/square-facebook-brands.svg"
+import instagram from "../assets/footer/instagram-brands.svg"
+import whatsapp from "../assets/footer/whatsapp-brands.svg"
+---
+<footer class="flex flex-col gap-5 py-6 px-6">
+    <div>
+        <img class="h-auto w-40 mx-auto sm:mx-0" src={logo.src} alt="brand logo" title="logo">
+    </div>
+    <div class="grid grid-cols-4 gap-2 w-full sm:w-80 sm:gap-8 *:inline-flex *:rounded-full *:bg-gray-300 *:aspect-square *:border-2 *:border-gray-400 *:max-w-14 *:mx-auto *:p-2">
+        <a  href="mailto:contact.evogrowth@gmail.com">
+            <img class="h-auto w-8 mx-auto" src={mail.src} alt="email de contacto" title="email de contacto">
+        </a>
+        <a href="https://www.facebook.com/evo.growth/">
+            <img class="h-auto w-8 mx-auto" src={facebook.src} alt="página de facebook" title="página de facebook">
+        </a>
+        <a href="https://www.instagram.com/evo.growth/">
+            <img class="h-auto w-8 mx-auto" src={instagram.src} alt="página de instagram" title="página de instagram">
+        </a>
+        <a href="https://wa.me/">
+            <img class="h-auto w-8 mx-auto" src={whatsapp.src} alt="whatsapp" title="whatsapp">
+        </a>
+    </div>
+    <hr class="border-gray-400" />
+    <div class="text-gray-500 text-center sm:text-left">
+        {new Date().getFullYear()} Evogrowth
+    </div>
+</footer>
