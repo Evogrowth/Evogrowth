@@ -1,0 +1,27 @@
+---
+const { Images } = Astro.props;
+---
+
+<div class="w-full inline-flex flex-nowrap overflow-hidden py-10 [mask-image:_linear-gradient(to_right,transparent_0,_black_32px,_black_calc(100%-32px),transparent_100%)] [&_img]:w-40 [&_img]:h-auto [&_img]:min-w-40 [&_img]:sm:w-72 [&_li]:mx-8 [&_img]:max-w-none">
+    <ul class="flex items-center justify-center md:justify-start animate-infinite-scroll">
+        {Images.map((image: { src: string | null; alt: string | null }) => (
+        <li>
+            <img src={image.src} alt={image.alt} />
+        </li>
+        ))}
+    </ul>
+    <ul class="flex items-center justify-center md:justify-start animate-infinite-scroll">
+        {Images.map((image: { src: string | null; alt: string | null }) => (
+        <li>
+            <img src={image.src} alt={image.alt} />
+        </li>
+        ))}
+    </ul>
+    <ul class="flex items-center justify-center md:justify-start animate-infinite-scroll">
+        {Images.map((image: { src: string | null; alt: string | null }) => (
+        <li>
+            <img src={image.src} alt={image.alt} />
+        </li>
+        ))}
+    </ul>
+</div>

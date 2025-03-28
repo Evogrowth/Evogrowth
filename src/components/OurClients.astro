@@ -1,0 +1,20 @@
+---
+import bg from "../assets/our-clients-background.png";
+import logoEscala from "../assets/clients/escala-logo.png";
+import logoArgos from "../assets/clients/argos-logo.png";
+
+import InfiniteScrollComponent from "./InfiniteScrollComponent.astro";
+
+//Add images as needed with src and alt attributes
+---
+<section id="our-clients" class="py-20 relative" >
+    <img class="w-full absolute h-full -z-10 top-0" src={bg.src} alt="background image">
+    <p class="text-center text-3xl font-medium mb-8"> Nuestros clientes </p>
+    <div class="bg-white/80 px-4 lg:px-10 lg:mx-20">
+        <InfiniteScrollComponent Images={[
+            {src: logoEscala.src, alt:"Congreso escala 2023"},
+            {src: logoArgos.src, alt: "Congreso Argos 2024"}
+            ]} />
+    </div>
+
+</section>
