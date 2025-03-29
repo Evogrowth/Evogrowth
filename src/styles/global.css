@@ -10,4 +10,8 @@
             transform: translateX(-100%)
         }
     }
+    --color-dark-blue: #525BFF;
+    --color-light-blue: #05B9FF;
+    --color-light-gray: #D9D9D9;
+    --color-white-blue: #DADCFF;
 }
