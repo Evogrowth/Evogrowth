@@ -2,13 +2,13 @@
  * Mobile Menu Management Script
  */
 
-const page = document.querySelector("#home");
+const page = document.querySelector("body");
 const menu = document.querySelector("#menu");
 const background = document.querySelector("#background-menu");
 const optionMenuList = document.querySelectorAll(".option-menu");
 
 //Disable the page's scrollbar when the user opens the menu
-menu.addEventListener("change", (event) => {
+menu.addEventListener("change", (event) => {    
     if (event.target.checked) {
         page.classList.add("overflow-hidden");
     }
