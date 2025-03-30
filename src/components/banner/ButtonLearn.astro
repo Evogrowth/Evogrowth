@@ -1,0 +1,12 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import arrowDown from "../../assets/banner/arrowdown.svg";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<button class="cursor-pointer mx-auto bg-[#D9D9D9] text-gray-800 font-semibold px-6 py-3 rounded-full flex items-center gap-2 shadow-md transition-all duration-300 hover:bg-white hover:shadow-lg">
+  <img class="w-[1.5vw] min-w-[25px]" src={arrowDown.src} alt="flecha en dirección hacia abajo">
+  <span class="text-[min(2.7vw,1.5rem)] font-mediun">{t('banner.hint')}</span>
+</button>
