@@ -14,7 +14,10 @@ export const ui = {
         "clients.title": "Nuestros clientes",
         "footer.email-alt": "Correo de contacto",
         "footer.fb-alt": "Página de Facebook",
-        "footer.ig-alt": "Página de Instagram"
+        "footer.ig-alt": "Página de Instagram",
+        "meta.title": "Evogrowth - Software a tu medida",
+        "meta.description" : "Somos una empresa comprometida con el crecimiento empresarial de nuestros clientes.",
+        "meta.keywords": "desarrollo de software,evogrowth,tech,web development"
     },
     en: {
         "navbar.home": "Home",

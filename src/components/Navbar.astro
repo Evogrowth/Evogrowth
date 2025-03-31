@@ -7,7 +7,6 @@ import BrandLogo from '../assets/brand-logo.svg';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
-
 <nav class="sticky top-0 py-3.5 md:py-8 font-poppins font-medium bg-white z-50">
     <div class="hidden relative mx-10 lg:mx-20 md:flex justify-center">
         <div class="absolute left-0 inset-y-0 flex items-center">
@@ -16,9 +15,9 @@ const t = useTranslations(lang);
             </a>
         </div>
         <div class="absolute right-0 top-1/2 -translate-y-1/2 before:absolute before:content-['ES'] before:-left-2 before:-translate-x-full before:top-1/2 before:-translate-y-1/2 before:font-poppins before:font-medium after:absolute after:content-['EN'] after:-right-2 after:translate-x-full after:top-1/2 after:-translate-y-1/2 after:font-poppins after:font-medium">
-            <a href=`/${lang == 'es' ? 'en' : ''}` class="block relative border-2 border-[#E13EF1] rounded-full h-6 w-10">
+            <button name="lang" data-lang={lang} class="block relative border-2 border-[#E13EF1] rounded-full h-6 w-10">
                 <span class=`absolute ${lang == 'es' ? 'left-1' : 'right-1'} top-1/2 -translate-y-1/2 size-4 rounded-full bg-[#E13EF1]`></span>
-            </a>
+            </button>
         </div>
         <ul class="flex justify-around gap-6 text-lg tracking-wider">
             <li>
@@ -72,13 +71,13 @@ const t = useTranslations(lang);
                 </li>
             </ul>
             <div class="absolute bottom-6 inset-x-0 flex justify-center">
-                <a href=`/${lang == 'es' ? 'en' : ''}`>
+                <button name="lang" data-lang={lang}>
                     <div class="relative before:absolute before:content-['ES'] before:-left-2 before:-translate-x-full before:top-1/2 before:-translate-y-1/2 before:font-poppins before:font-medium after:absolute after:content-['EN'] after:-right-2 after:translate-x-full after:top-1/2 after:-translate-y-1/2 after:font-poppins after:font-medium">
                         <div class="block relative border-2 border-white rounded-full h-6 w-10">
                             <span class=`absolute ${lang == 'es' ? 'left-1' : 'right-1'} top-1/2 -translate-y-1/2 size-4 rounded-full bg-white`></span>
                         </div>
                     </div>
-                </a>
+                </button>
             </div>
         </div>
         
@@ -90,5 +89,5 @@ const t = useTranslations(lang);
     </div>
 </nav>
 
-<script src="../scripts/menu.js"></script>
-<script src="../scripts/scrollbar.js"></script>
+<script src="../scripts/scrollbar.js" />
+<script src="../scripts/menu.js" />
