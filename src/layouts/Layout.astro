@@ -5,8 +5,6 @@ import '../styles/global.css'
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
-import favIcon from "../assets/favicon.svg"
-
 const lang = getLangFromUrl(Astro.url);
 ---   
 <!doctype html>
@@ -18,11 +16,11 @@ const lang = getLangFromUrl(Astro.url);
 		<meta name="description" content="Somos una empresa comprometida con el crecimiento empresarial de nuestros clientes." />
 		<meta name="keywords" content="desarrollo,software,evogrowth,tech,web,development" />
 		<meta name="google-site-verification" content="ibzjaLK84ClN5CdlxTXwn7C7IVuDoGki2c7t_894b3A" />
-		<link rel="icon" type="image/svg+xml" href={favIcon.src} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta property="og:title" content="Evogrowth - Software a tu medida"/>
 		<meta property="og:description" content="Somos una empresa comprometida con el crecimiento empresarial de nuestros clientes."/>
 		<meta property="og:url" content="https://evogrowth.dev/"/>
-		<meta property="og:image" content={favIcon.src}/>
+		<meta property="og:image" content="/favicon.svg"/>
 		<meta property="og:type" content="website"/>
 		<meta property="generator" content={Astro.generator} />
 		<title>Evogrowth</title>
