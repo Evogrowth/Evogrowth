@@ -1,0 +1,94 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { Image } from 'astro:assets';
+
+import BrandLogo from '../assets/brand-logo.svg';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<nav class="sticky top-0 py-3.5 md:py-8 font-poppins font-medium bg-white z-50">
+    <div class="hidden relative mx-10 lg:mx-20 md:flex justify-center">
+        <div class="absolute left-0 inset-y-0 flex items-center">
+            <a href="/">
+                <Image src={BrandLogo} class="w-44 lg:w-52" alt="Evogrowth - Desarrollo de Software" />
+            </a>
+        </div>
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 before:absolute before:content-['ES'] before:-left-2 before:-translate-x-full before:top-1/2 before:-translate-y-1/2 before:font-poppins before:font-medium after:absolute after:content-['EN'] after:-right-2 after:translate-x-full after:top-1/2 after:-translate-y-1/2 after:font-poppins after:font-medium">
+            <a href=`/${lang == 'es' ? 'en' : ''}` class="block relative border-2 border-[#E13EF1] rounded-full h-6 w-10">
+                <span class=`absolute ${lang == 'es' ? 'left-1' : 'right-1'} top-1/2 -translate-y-1/2 size-4 rounded-full bg-[#E13EF1]`></span>
+            </a>
+        </div>
+        <ul class="flex justify-around gap-6 text-lg tracking-wider">
+            <li>
+                <button class="button-home relative uppercase cursor-pointer hover:text-[#E13EF1] transition-all after:absolute after:content-[''] after:-bottom-0.5 after:w-0 after:h-0.5 after:bg-[#E13EF1] after:left-1/2 after:-translate-x-1/2 hover:after:w-full after:transition-all">{t("navbar.home")}</button>
+            </li>
+            <li>
+                <button class="button-portfolio relative uppercase cursor-pointer hover:text-[#E13EF1] transition-all after:absolute after:content-[''] after:-bottom-0.5 after:w-0 after:h-0.5 after:bg-[#E13EF1] after:left-1/2 after:-translate-x-1/2 hover:after:w-full after:transition-all">{t("navbar.portfolio")}</button>
+            </li>
+            <li>
+                <button class="button-contact relative uppercase cursor-pointer hover:text-[#E13EF1] transition-all after:absolute after:content-[''] after:-bottom-0.5 after:w-0 after:h-0.5 after:bg-[#E13EF1] after:left-1/2 after:-translate-x-1/2 hover:after:w-full after:transition-all">{t("navbar.contact")}</button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="relative md:hidden group">
+        <div class="absolute right-2 top-[50%] -translate-y-1/2 h-9 w-9">
+            <input id="menu" type="checkbox" class="peer absolute z-10 inset-0 opacity-0 cursor-pointer">
+
+            <div class="h-full w-full p-1 flex flex-col justify-center gap-1">
+                <div class="h-1 rounded-xs bg-black group-has-checked:-rotate-45 group-has-checked:translate-y-2 w-full transition-all duration-75"></div>
+                <div class="h-1 rounded-xs bg-black group-has-checked:opacity-0 w-full"></div>
+                <div class="h-1 rounded-xs bg-black group-has-checked:rotate-45 group-has-checked:-translate-y-2 w-full transition-all duration-75"></div>
+            </div>
+        </div>
+
+        <div id="background-menu" class="absolute hidden group-has-checked:block inset-x-0 -bottom-3.5 translate-y-full h-screen bg-black opacity-75"></div>
+
+        <div class="absolute inset-x-0 -bottom-3.5 translate-y-full bg-[#525BFF] overflow-hidden h-0 group-has-checked:h-72 text-xl text-white">
+            <h2 class="px-6 pt-4 pb-2">{t("navbar.menu")}</h2>
+            <ul class="flex flex-col gap-2 px-2 tracking-wider">
+                <li>
+                    <button class="button-home option-menu uppercase cursor-pointer py-2 px-4 w-full flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" width="22" height="22" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+                        {t("navbar.home")}
+                    </button>
+                    <div class="border border-white w-full"></div>
+                </li>
+                <li>
+                    <button class="button-portfolio option-menu uppercase cursor-pointer py-2 px-4 w-full flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" width="22" height="22" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M184 48l144 0c4.4 0 8 3.6 8 8l0 40L176 96l0-40c0-4.4 3.6-8 8-8zm-56 8l0 40L64 96C28.7 96 0 124.7 0 160l0 96 192 0 128 0 192 0 0-96c0-35.3-28.7-64-64-64l-64 0 0-40c0-30.9-25.1-56-56-56L184 0c-30.9 0-56 25.1-56 56zM512 288l-192 0 0 32c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-32L0 288 0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-128z"/></svg>
+                        {t("navbar.portfolio")}
+                    </button>
+                    <div class="border border-white w-full"></div>
+                </li>
+                <li>
+                    <button class="button-contact option-menu uppercase cursor-pointer py-2 px-4 w-full flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" width="22" height="22" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                        {t("navbar.contact")}
+                    </button>
+                    <div class="border border-white w-full"></div>
+                </li>
+            </ul>
+            <div class="absolute bottom-6 inset-x-0 flex justify-center">
+                <a href=`/${lang == 'es' ? 'en' : ''}`>
+                    <div class="relative before:absolute before:content-['ES'] before:-left-2 before:-translate-x-full before:top-1/2 before:-translate-y-1/2 before:font-poppins before:font-medium after:absolute after:content-['EN'] after:-right-2 after:translate-x-full after:top-1/2 after:-translate-y-1/2 after:font-poppins after:font-medium">
+                        <div class="block relative border-2 border-white rounded-full h-6 w-10">
+                            <span class=`absolute ${lang == 'es' ? 'left-1' : 'right-1'} top-1/2 -translate-y-1/2 size-4 rounded-full bg-white`></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <div class="flex justify-center">
+            <a href="/" class="p-2">
+                <Image src={BrandLogo} class="w-44" alt="Evogrowth - Desarrollo de Software" />
+            </a>
+        </div>
+    </div>
+</nav>
+
+<script src="../scripts/menu.js"></script>
+<script src="../scripts/scrollbar.js"></script>
