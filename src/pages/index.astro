@@ -9,14 +9,12 @@ import OurClients from "../components/OurClients.astro";
 
 <script is:inline>
 	try {
-		//Add loader
-		const preferredLanguage = localStorage.getItem("lang");
+		let preferredLanguage = localStorage.getItem("lang");
 		if(preferredLanguage){
 			window.location.assign(`/${preferredLanguage}`);
 		}else{
-			if (navigator.language.toLowerCase().includes("en")) {
-				window.location.assign("/en");
-			}
+			preferredLanguage = navigator.language.toLowerCase().includes("en") ? "en" : "es";
+			window.location.assign(`/${preferredLanguage}`);
 		}
 		
 	} catch (error) {
