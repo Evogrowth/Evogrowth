@@ -1,0 +1,36 @@
+---
+import ButtonLearn from './ButtonLearn.astro'
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import bgBanner from '../../assets/banner/bgBanner.svg';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="w-full max-w-10/12 mx-auto relative">
+
+    <div class="aspect-[16/9]">
+        <img class="absolute w-full h-full -z-10 top-0 left-0" src={bgBanner.src} alt="imagen blob perteneciente al fondo del banner">
+
+        <div class="absolute inset-0 flex flex-col justify-between text-nowrap">
+
+            <div class="self-start text-left w-full text-gray-800 ">
+                <h2 class="font-medium text-[min(2.5vw,4rem)] tracking-wide ml-[40%] mt-[3%]">{t('banner.DescOne')}</h2>
+                <h2 class="font-medium text-[min(2.5vw,4rem)] tracking-wide ml-[47%] mt-[3%]">{t('banner.DescTwo')}</h2>
+            </div>
+            
+            <div class="text-center my-auto">
+                <h1 class="text-white text-[min(6vw,10rem)] font-bold tracking-[3vw] drop-shadow-lg">{t('banner.title')}</h1>
+            </div>
+
+            <div class="self-start text-left w-full md:max-w-[70%] text-gray-800 mb-[2%]">
+                <h2 class="font-medium text-[min(2.5vw,4rem)] tracking-wide mb-[2%]">{t('banner.DescThree')}</h2>
+                <h2 class="font-medium text-[min(2.5vw,4rem)] tracking-wide">{t('banner.DescFour')}</h2>
+            </div>
+            
+        </div>
+
+    </div>
+</div>
+<br>
+<ButtonLearn></ButtonLearn>

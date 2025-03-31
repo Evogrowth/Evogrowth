@@ -1,6 +1,7 @@
 ---                              
 import Footer from '../components/Footer.astro'
 import Navbar from '../components/Navbar.astro';
+import Banner from '../components/banner/Banner.astro';
 import '../styles/global.css'  
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
@@ -27,6 +28,7 @@ const t = useTranslations(lang);
 	</head>
 	<body id="home">
 		<Navbar />
+    <Banner />
 		<slot />
 		<Footer />
 	</body>
