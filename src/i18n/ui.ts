@@ -16,7 +16,7 @@ export const ui = {
         "footer.fb-alt": "Página de Facebook",
         "footer.ig-alt": "Página de Instagram",
         "meta.title": "Evogrowth - Software a tu medida",
-        "meta.description" : "Somos una empresa comprometida con el crecimiento empresarial de nuestros clientes.",
+        "meta.description" : "Somos un proyecto start up comprometidos con el crecimiento empresarial de nuestros clientes.",
     },
     en: {
         "navbar.home": "Home",
@@ -28,6 +28,6 @@ export const ui = {
         "footer.fb-alt": "Facebook page",
         "footer.ig-alt": "Instagram page",
         "meta.title": "Evogrowth - Software tailored to your needs",
-        "meta.description" : "We are a company committed to the business growth of our clients.",
+        "meta.description" : "We are a start up project committed to the business growth of our clients.",
     },
 } as const;
