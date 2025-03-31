@@ -15,6 +15,11 @@ const t = useTranslations(lang);
                 <Image src={BrandLogo} class="w-44 lg:w-52" alt="Evogrowth - Desarrollo de Software" />
             </a>
         </div>
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 before:absolute before:content-['ES'] before:-left-2 before:-translate-x-full before:top-1/2 before:-translate-y-1/2 before:font-poppins before:font-medium after:absolute after:content-['EN'] after:-right-2 after:translate-x-full after:top-1/2 after:-translate-y-1/2 after:font-poppins after:font-medium">
+            <a href=`/${lang == 'es' ? 'en' : ''}` class="block relative border-2 border-[#E13EF1] rounded-full h-6 w-10">
+                <span class=`absolute ${lang == 'es' ? 'left-1' : 'right-1'} top-1/2 -translate-y-1/2 size-4 rounded-full bg-[#E13EF1]`></span>
+            </a>
+        </div>
         <ul class="flex justify-around gap-6 text-lg tracking-wider">
             <li>
                 <button class="button-home relative uppercase cursor-pointer hover:text-[#E13EF1] transition-all after:absolute after:content-[''] after:-bottom-0.5 after:w-0 after:h-0.5 after:bg-[#E13EF1] after:left-1/2 after:-translate-x-1/2 hover:after:w-full after:transition-all">{t("navbar.home")}</button>
@@ -66,6 +71,13 @@ const t = useTranslations(lang);
                     <div class="border border-white w-full"></div>
                 </li>
             </ul>
+            <div class="absolute bottom-6 inset-x-0 flex justify-center">
+                <div class="relative before:absolute before:content-['ES'] before:-left-2 before:-translate-x-full before:top-1/2 before:-translate-y-1/2 before:font-poppins before:font-medium after:absolute after:content-['EN'] after:-right-2 after:translate-x-full after:top-1/2 after:-translate-y-1/2 after:font-poppins after:font-medium">
+                    <a href=`/${lang == 'es' ? 'en' : ''}` class="block relative border-2 border-white rounded-full h-6 w-10">
+                        <span class=`absolute ${lang == 'es' ? 'left-1' : 'right-1'} top-1/2 -translate-y-1/2 size-4 rounded-full bg-white`></span>
+                    </a>
+                </div>
+            </div>
         </div>
         
         <div class="flex justify-center">
