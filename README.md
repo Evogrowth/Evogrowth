@@ -18,7 +18,7 @@ All commands are run from the root of the project, from a terminal:
 [Astro docs](https://docs.astro.build)
 [Astro Discord server](https://astro.build/chat).
 
-## Add multiple languages:
+## Add multiple languages
 
 > [!NOTE]
 > The automatic redirect that Astro offers only works in SSR mode.
