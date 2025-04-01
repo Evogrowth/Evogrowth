@@ -19,8 +19,10 @@ All commands are run from the root of the project, from a terminal:
 [Astro Discord server](https://astro.build/chat).
 
 ## Add multiple languages:
+
 > [!NOTE]
 > The automatic redirect that Astro offers only works in SSR mode.
+
 
 Create a folder "i18n" in /src with the following files:
 
@@ -49,6 +51,7 @@ export const ui = {
 } as const;
 ```
 
+
 ### utils.ts
 
 ```
@@ -67,6 +70,7 @@ export function useTranslations(lang: keyof typeof ui) {
 }
 ```
 
+
 In the **astro.config.mjs** file add the following lines:
 
 ```
@@ -79,12 +83,14 @@ export default defineConfig({
 });
 ```
 
+
 Lastly, in your /pages folder keep the index.astro and create folders for every language you need.
 
--/pages
- -index.astro
- -/en
-  -index.astro
+/pages
+    index.astro
+    /en
+        index.astro
+
 
 Now you can use your translations in your components like this
 ```
