@@ -5,6 +5,21 @@ import Contact from "../components/Contact.astro";
 ---
 
 <Layout>
-	<OurClients></OurClients>
-	<Contact></Contact>
+	<OurClients />
+	<Contact />
 </Layout>
+
+<script is:inline>
+	try {
+		let preferredLanguage = localStorage.getItem("lang");
+		if(preferredLanguage){
+			window.location.assign(`/${preferredLanguage}`);
+		}else{
+			preferredLanguage = navigator.language.toLowerCase().includes("en") ? "en" : "es";
+			window.location.assign(`/${preferredLanguage}`);
+		}
+		
+	} catch (error) {
+		console.log("An error has occurred while obtaining the preferred language");
+	}
+</script>
