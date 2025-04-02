@@ -1,8 +1,23 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import OurClients from '../components/OurClients.astro';
+import Layout from "../layouts/Layout.astro";
+import OurClients from "../components/OurClients.astro";
 ---
 
 <Layout>
-	<OurClients></OurClients>
+	<OurClients />
 </Layout>
+
+<script is:inline>
+	try {
+		let preferredLanguage = localStorage.getItem("lang");
+		if(preferredLanguage){
+			window.location.assign(`/${preferredLanguage}`);
+		}else{
+			preferredLanguage = navigator.language.toLowerCase().includes("en") ? "en" : "es";
+			window.location.assign(`/${preferredLanguage}`);
+		}
+		
+	} catch (error) {
+		console.log("An error has occurred while obtaining the preferred language");
+	}
+</script>

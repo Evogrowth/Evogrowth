@@ -7,24 +7,24 @@ import '../styles/global.css'
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---   
 <!doctype html>
 <html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="title" content="Evogrowth - Software a tu medida" />
-		<meta name="description" content="Somos una empresa comprometida con el crecimiento empresarial de nuestros clientes." />
-		<meta name="keywords" content="desarrollo,software,evogrowth,tech,web,development" />
-		<meta name="google-site-verification" content="ibzjaLK84ClN5CdlxTXwn7C7IVuDoGki2c7t_894b3A" />
+		<meta name="title" content={t("meta.title")} />
+		<meta name="description" content={t("meta.description")} />
+		<meta name="keywords" content="desarrollo de software,evogrowth,tech,web development" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta property="og:title" content="Evogrowth - Software a tu medida"/>
-		<meta property="og:description" content="Somos una empresa comprometida con el crecimiento empresarial de nuestros clientes."/>
+		<meta property="og:title" content={t("meta.title")}/>
+		<meta property="og:description" content={t("meta.description")}/>
 		<meta property="og:url" content="https://evogrowth.dev/"/>
 		<meta property="og:image" content="/favicon.svg"/>
 		<meta property="og:type" content="website"/>
 		<meta property="generator" content={Astro.generator} />
-		<title>Evogrowth</title>
+		<title>{t("meta.title")}</title>
 	</head>
 	<body id="home">
 		<Navbar />
