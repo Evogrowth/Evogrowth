@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import brandLogo from "../assets/brand-logo.png";
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { error } from 'astro/dist/core/logger/core';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -17,18 +18,28 @@ const t = useTranslations(lang);
             <h3 class="text-2xl font-bold mb-5 max-md:text-center">{t("contact.form-title")}</h3>
             <form id="contact-form" name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true" class="flex flex-col gap-2 *:invalid:border-red-400 *:invalid:border-2">
                 <input type="hidden" name="bot-field" />
-                <input class="bg-white p-2 rounded-lg" type="text" name="name"  maxlength="100" pattern="[a-zA-Zñáéíóúü]+([\\s][a-zA-Zñáéíóúü]+)*" placeholder={t("contact.form-input-name")} title="Name must have fewer than 100 characters and can only contain alphabetic characters" />
+                <input class="bg-white p-2 rounded-lg" type="text" name="name"  maxlength="100" pattern="[a-zA-Zñáéíóúü]+([\\s][a-zA-Zñáéíóúü]+)*" placeholder={t("contact.form-input-name")} title={t("contact.form-input-name")} />
                 <input class="bg-white p-2 rounded-lg" type="email" name="email" placeholder={t("contact.form-input-email")} />
-                <input class="bg-white p-2 rounded-lg" type="text" pattern="[\+][\\d]{1,2}[\\s][\\(][\\d]{3}[\\)][\\s][\\d]{3}[\\-][\\d]{4}" x-mask:dynamic="$input.startsWith('+1') ? '+9 (999) 999-9999' : '+99 (999) 999-9999'"  name="phone" placeholder={t("contact.form-input-phone")} title="The phone must be valid" />
-                <textarea class="bg-white p-2 rounded-lg h-25" name="message" minlength="3" maxlength="750" placeholder={t("contact.form-input-description")} />
+                <input class="bg-white p-2 rounded-lg" type="text" pattern="[\+][\\d]{1,2}[\\s][\\(][\\d]{3}[\\)][\\s][\\d]{3}[\\-][\\d]{4}" x-mask:dynamic="$input.startsWith('+1') ? '+9 (999) 999-9999' : '+99 (999) 999-9999'"  name="phone" placeholder={t("contact.form-input-phone")} title={t("contact.form-input-phone")} />
+                <textarea class="bg-white p-2 rounded-lg h-25" name="message" minlength="3" maxlength="750" placeholder={t("contact.form-input-description")}  />
                 <button class="bg-light-blue rounded-lg font-bold py-2 text-lg cursor-pointer" type="submit">{t("contact.form-button")}</button>
             </form>
         </div>
     </div>
 </section>
-
-<script>
+<div hidden id="data" data-errorMessage={t('contact.form-error')} data-successMessage={ t('contact.form-success')} data-invalidMessage={t("contact.form-invalid")}/>
+<script >
     import Swal from "sweetalert2";
+
+    const dataElement = document.getElementById("data");
+
+    //Trim inputs
+    let inputs = document.querySelectorAll("input, textarea");
+    inputs.forEach(i => {
+        i.addEventListener("focusout", (e) => {
+            i.value = i.value.trim();
+        });
+    })
 
     let form = document.getElementById("contact-form");
     form.addEventListener("submit", (e) => {
@@ -38,7 +49,7 @@ const t = useTranslations(lang);
         formData.entries().forEach((field) => {
             if (field[1] === "" && field[0] !== "bot-field") {
                 Swal.fire({
-                    title: "Por favor llena todos los campos del formulario",
+                    title: dataElement.getAttribute("data-invalidMessage"),
                     icon: "error",
                     confirmButtonText: "¡Entendido!",
                 })
@@ -46,7 +57,6 @@ const t = useTranslations(lang);
             }
         })
 
-        console.log(formData.get("phone").toString())
         if (valid) {
             fetch("/", {
                 method: "POST",
@@ -55,14 +65,14 @@ const t = useTranslations(lang);
             })
             .then(() => {
                 Swal.fire({
-                    title: "El mensaje fue enviado con éxito",
+                    title: dataElement.getAttribute("data-successMessage"),
                     icon: "success",
                     confirmButtonText: "¡Entendido!",
                 })
             })
             .catch(error => {
                 Swal.fire({
-                    title: "Hubo un error al enviar el mensaje, por favor revisa el formulario",
+                    title: dataElement.getAttribute("data-errorMessage"),
                     icon: "error",
                     confirmButtonText: "¡Entendido!",
                 })
