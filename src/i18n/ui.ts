@@ -32,8 +32,8 @@ export const ui = {
         "contact.form-input-description": "Descripción breve del proyecto",
         "contact.form-button": "Solicitar cotización",
         "contact.form-invalid": "Por favor llena todos los campos del formulario",
-        "contact.form-error": "El mensaje fue enviado con éxito",
-        "contact.form-success": "Hubo un error al enviar el mensaje, por favor revisa el formulario",
+        "contact.form-error": "Hubo un error al enviar el mensaje, por favor revisa el formulario",
+        "contact.form-success": "El mensaje fue enviado con éxito",
         "footer.email-alt": "Correo de contacto",
         "footer.fb-alt": "Página de Facebook",
         "footer.ig-alt": "Página de Instagram"
@@ -64,8 +64,8 @@ export const ui = {
         "contact.form-input-description": "Short description of your project",
         "contact.form-button": "Request quote",
         "contact.form-invalid": "Please fill out all the form fields",
-        "contact.form-error": "The message was sent successfully",
-        "contact.form-success": "An error occurred while sending your message",
+        "contact.form-error": "An error occurred while sending your message",
+        "contact.form-success": "The message was sent successfully",
         "footer.email-alt": "Contact email",
         "footer.fb-alt": "Facebook page",
         "footer.ig-alt": "Instagram page"
