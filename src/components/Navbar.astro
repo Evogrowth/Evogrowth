@@ -15,7 +15,7 @@ const t = useTranslations(lang);
             </a>
         </div>
         <div class="absolute right-0 top-1/2 -translate-y-1/2 before:absolute before:content-['ES'] before:-left-2 before:-translate-x-full before:top-1/2 before:-translate-y-1/2 before:font-poppins before:font-medium after:absolute after:content-['EN'] after:-right-2 after:translate-x-full after:top-1/2 after:-translate-y-1/2 after:font-poppins after:font-medium">
-            <button name="lang" data-lang={lang} class="block relative border-2 border-[#E13EF1] rounded-full h-6 w-10">
+            <button type="button" name="lang" data-lang={lang} class="block relative border-2 border-[#E13EF1] rounded-full h-6 w-10 cursor-pointer">
                 <span class=`absolute ${lang == 'es' ? 'left-1' : 'right-1'} top-1/2 -translate-y-1/2 size-4 rounded-full bg-[#E13EF1]`></span>
             </button>
         </div>
