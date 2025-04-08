@@ -2,20 +2,15 @@
  * Scrollbar Behavior Script
  */
 
-document.querySelectorAll(".button-home").forEach(button => {
+document.querySelectorAll("button[name='navigation']").forEach(button => {
     button.addEventListener("click", () => {
-        document.querySelector("#home").scrollIntoView({ behavior: "smooth" });
-    })
-});
+        console.log(button.getAttribute("data-target-id"))
+        const targetElement = document.querySelector(`#${button.getAttribute("data-target-id")}`);
 
-document.querySelectorAll(".button-portfolio").forEach(button => {
-    button.addEventListener("click", () => {
-        document.querySelector("#portfolio").scrollIntoView({ behavior: "smooth" });
-    })
-});
-
-document.querySelectorAll(".button-contact").forEach(button => {
-    button.addEventListener("click", () => {
-        document.querySelector("#contact").scrollIntoView({ behavior: "smooth" });
+        scrollTo({
+            top: targetElement.getBoundingClientRect().top + (window.pageYOffset - document.getElementById("navBar").offsetHeight),
+            behavior: "smooth"
+        })
+        ;
     })
 });

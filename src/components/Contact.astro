@@ -2,13 +2,12 @@
 import { Image } from 'astro:assets';
 import brandLogo from "../assets/brand-logo.png";
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
-import { error } from 'astro/dist/core/logger/core';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 <section id="contact" class="py-20 relative bg-dark-blue" >
-    <div class="flex flex-col md:flex-row  w-4/5 ml-auto mr-auto max-md:gap-4">
+    <div class="flex flex-col md:flex-row  w-4/5 ml-auto mr-auto max-md:gap-4 transition duration-500 translate-y-14 opacity-0">
         <div class="md:flex-1/2 lg:flex-2/3">
             <h1 class="sm:mt-4 max-md:text-4xl md:text-5xl lg:text-6xl max-md:text-center md:text-left font-bold text-white">{t("contact.title")}</h1>
             <h3 class="mt-4 max-md:text-2xl md:text-3xl max-md:text-center md:text-left text-white-blue">{t("contact.subtitle")}</h3>
@@ -79,4 +78,25 @@ const t = useTranslations(lang);
             });
         }
     })
+
+    //Appear animation
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting && entry.target.classList.contains("opacity-0")){
+                entry.target.classList.remove("opacity-0");
+                entry.target.classList.remove("translate-y-14");
+                entry.target.classList.add("opacity-100");
+                entry.target.classList.add("translate-y-0");
+            }
+            observer.unobserve(entry.target);
+        })
+    },
+    {    
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.4
+    });
+
+    const child = document.querySelector("#contact div");
+    observer.observe(child!);
 </script>
