@@ -1,0 +1,67 @@
+---
+import Image from "astro/components/Image.astro";
+import AboutUs1 from "../assets/about-us/about-us-1.png";
+import AboutUs2 from "../assets/about-us/about-us-2.jpg";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+---
+
+<div id="about-us-1" class="grid md:grid-cols-2 gap-x-6 gap-y-10 w-full max-w-10/12 mx-auto mt-12 transition duration-500 -translate-x-14 opacity-0">
+    <div class="lg:pr-20">
+        <h1 class="font-bold text-xl sm:text-4xl"> {t("about.title")} </h1>
+        <div class="text-justify sm:text-lg space-y-4 flex flex-col items-center">
+            <p> {t("about.paragraph-1")} </p>
+            <p> {t("about.paragraph-2")} </p>
+            <p> {t("about.paragraph-3")} </p>
+            <a href={lang+"/about-us"} class="bg-blue-400 font-medium rounded-md py-1 w-60 text-center lg:w-full"> {t("about.title")}</a>
+        </div>
+    </div>
+    <div class="flex items-center justify-center md:pl-5 lg:pl-20">
+        <Image class="h-auto w-64 md:w-auto xl:max-w-full" src={AboutUs1} alt="placeholder image" loading="lazy" />
+    </div>
+</div>
+
+<div id="about-us-2" class="grid md:grid-cols-2 gap-6 w-full max-w-10/12 mx-auto mt-10 md:mt-20 transition duration-500 translate-x-14 opacity-0">
+    <div class="lg:pr-20 items-center justify-center hidden md:flex">
+        <Image class="h-auto w-64 md:w-auto xl:max-w-full" src={AboutUs2} alt="placeholder image" loading="lazy" />
+    </div>
+    <div class="flex flex-col items-center justify-center gap-3 md:pl-5 lg:pl-20">
+        <p class="text-justify sm:text-lg">
+            {t("about.paragraph-4.1")}<span class="decoration-blue-600 decoration-2 underline font-medium">{t("about.paragraph-4.2")}</span>!
+        </p>
+        <button name="navigation" data-target-id="contact" type="button" class="bg-blue-400 font-medium rounded-md py-1 w-60 cursor-pointer">{t("about.contact-button")}</button>
+    </div>
+</div>
+
+<script src="../scripts/scrollbar.js" />
+
+<script>
+        const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting && entry.target.classList.contains("opacity-0")){
+                entry.target.classList.remove("opacity-0");
+
+            if(entry.target.classList.contains("translate-x-14")){
+                entry.target.classList.remove("translate-x-14");
+            }
+            else{
+                entry.target.classList.remove("-translate-x-14");
+            }
+
+            entry.target.classList.add("opacity-100");
+            entry.target.classList.add("translate-x-0");
+            }
+        })
+    },
+    {    
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.4
+    });
+
+    observer.observe(document.querySelector("#about-us-1")!);
+    observer.observe(document.querySelector("#about-us-2")!);
+</script>

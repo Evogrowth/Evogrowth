@@ -10,7 +10,7 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
-<footer class="flex flex-col gap-5 py-6 px-6">
+<footer class="flex flex-col mt-auto gap-5 py-6 px-6">
     <div>
         <img class="h-auto w-40 mx-auto sm:mx-0" src={logo.src} alt="brand logo" title="logo">
     </div>
