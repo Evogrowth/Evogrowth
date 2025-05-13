@@ -11,12 +11,12 @@ const t = useTranslations(lang);
 
 <div id="about-us-1" class="grid md:grid-cols-2 gap-x-6 gap-y-10 w-full max-w-10/12 mx-auto mt-12 transition duration-500 -translate-x-14 opacity-0">
     <div class="lg:pr-20">
-        <h1 class="font-bold text-xl sm:text-4xl"> {t("about.title")} </h1>
-        <div class="text-justify sm:text-lg space-y-4 flex flex-col items-center">
+        <h1 class="font-bold text-xl sm:text-4xl"> {t("about.title-1")} </h1>
+        <div class="text-justify sm:text-lg space-y-4 flex flex-col items-center text-gray-600">
             <p> {t("about.paragraph-1")} </p>
             <p> {t("about.paragraph-2")} </p>
             <p> {t("about.paragraph-3")} </p>
-            <a href={lang+"/about-us"} class="bg-blue-400 font-medium rounded-md py-1 w-60 text-center lg:w-full"> {t("about.title")}</a>
+            <a href={lang+"/about-us"} class="bg-[#05B9FF] font-medium rounded-md py-1 w-60 text-center text-white text-sm lg:w-full"> {t("about.button-1")}</a>
         </div>
     </div>
     <div class="flex items-center justify-center md:pl-5 lg:pl-20">
@@ -24,15 +24,13 @@ const t = useTranslations(lang);
     </div>
 </div>
 
-<div id="about-us-2" class="grid md:grid-cols-2 gap-6 w-full max-w-10/12 mx-auto mt-10 md:mt-20 transition duration-500 translate-x-14 opacity-0">
-    <div class="lg:pr-20 items-center justify-center hidden md:flex">
-        <Image class="h-auto w-64 md:w-auto xl:max-w-full" src={AboutUs2} alt="placeholder image" loading="lazy" />
-    </div>
-    <div class="flex flex-col items-center justify-center gap-3 md:pl-5 lg:pl-20">
-        <p class="text-justify sm:text-lg">
-            {t("about.paragraph-4.1")}<span class="decoration-blue-600 decoration-2 underline font-medium">{t("about.paragraph-4.2")}</span>!
+<div id="about-us-2" class="w-full max-w-lg mx-auto mt-10 md:mt-20 transition duration-500 translate-x-14 opacity-0">
+    <div class="flex flex-col items-center justify-center gap-3">
+        <h1 class="font-bold text-xl sm:text-4xl">{t("about.title-2")}</h1>
+        <p class="text-justify sm:text-lg text-gray-600">
+            {t("about.paragraph-4.1")}<span class="font-medium text-pink-500">{t("about.paragraph-4.2")}</span>
         </p>
-        <button name="navigation" data-target-id="contact" type="button" class="bg-blue-400 font-medium rounded-md py-1 w-60 cursor-pointer">{t("about.contact-button")}</button>
+        <button name="navigation" data-target-id="contact" type="button" class="bg-[#05B9FF] font-medium rounded-md py-1 w-60 cursor-pointer text-sm text-white">{t("about.button-2")}</button>
     </div>
 </div>
 
