@@ -1,7 +1,6 @@
 ---                              
 import Footer from '../components/Footer.astro'
 import Navbar from '../components/Navbar.astro';
-import Banner from '../components/banner/Banner.astro';
 import '../styles/global.css'  
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
@@ -26,9 +25,8 @@ const t = useTranslations(lang);
 		<meta property="generator" content={Astro.generator} />
 		<title>{t("meta.title")}</title>
 	</head>
-	<body id="home">
+	<body id="home" class="flex flex-col min-h-screen">
 		<Navbar />
-    	<Banner />
 		<slot />
 		<Footer />
 	</body>
