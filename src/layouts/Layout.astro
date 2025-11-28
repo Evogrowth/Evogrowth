@@ -1,6 +1,7 @@
 ---                              
-import Footer from '../components/Footer.astro'
+import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
+import Favicon from '../assets/favicon.jpg';
 import '../styles/global.css'  
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
@@ -20,7 +21,9 @@ const t = useTranslations(lang);
 		<meta property="og:title" content={t("meta.title")}/>
 		<meta property="og:description" content={t("meta.description")}/>
 		<meta property="og:url" content="https://evogrowth.dev/"/>
-		<meta property="og:image" content="/favicon.svg"/>
+		<meta property="og:image" content={"https://evogrowth.dev/"+Favicon.src}/>
+		<meta property="og:image:width" content="1637" />
+		<meta property="og:image:height" content="512" />
 		<meta property="og:type" content="website"/>
 		<meta property="generator" content={Astro.generator} />
 		<title>{t("meta.title")}</title>
